@@ -14,6 +14,9 @@ dependencies:
   '@dnd-kit/utilities':
     specifier: ^3.2.2
     version: 3.2.2(react@18.2.0)
+  '@fontsource/rubik':
+    specifier: ^5.0.19
+    version: 5.0.19
   '@hello-pangea/dnd':
     specifier: ^16.5.0
     version: 16.5.0(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
@@ -1828,6 +1831,10 @@ packages:
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: true
+
+  /@fontsource/rubik@5.0.19:
+    resolution: {integrity: sha512-U5vEMCMBrrXYQ+xBYE/1MbJ049lHpVfyIAc/8eMGk4PC6fkJvVMOBrfIcX05BgXogGBQ6lbxMB/8ZvihZMcefA==}
+    dev: false
 
   /@hello-pangea/dnd@16.5.0(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-n+am6O32jo/CFXciCysz83lPM3I3F58FJw4uS44TceieymcyxQSfzK5OhzPAKrVBZktmuOI6Zim9WABTMtXv4A==}
