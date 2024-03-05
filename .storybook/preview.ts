@@ -1,7 +1,9 @@
+import '@fontsource/rubik/400.css'
+import '@fontsource/rubik/700.css'
+import '@fontsource/rubik/900.css'
 import type { Preview } from '@storybook/react'
-import '@fontsource/rubik/400.css';
-import '@fontsource/rubik/700.css';
-import '@fontsource/rubik/900.css';
+
+import '../src/styles/index.scss'
 
 const preview: Preview = {
 	parameters: {

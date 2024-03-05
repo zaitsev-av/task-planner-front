@@ -3,7 +3,8 @@ import { Rubik } from 'next/font/google'
 
 import { SITE_NAME } from '@/constants/seo.constans'
 
-import './globals.scss'
+import '../styles/index.scss'
+
 import { Providers } from '@/app/porviders'
 
 const font = Rubik({
