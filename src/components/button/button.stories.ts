@@ -26,6 +26,14 @@ export const Default: Story = {
 	}
 }
 
+export const FullWidth: Story = {
+	args: {
+		fullWidth: true,
+		children: 'Default',
+		onClick: () => console.log('click to full width button')
+	}
+}
+
 export const Link: Story = {
 	args: {
 		as: 'a',

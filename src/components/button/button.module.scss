@@ -1,6 +1,11 @@
 .root {
-  cursor: pointer;
+  all: unset;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
   position: relative;
   transform-style: preserve-3d;
 
@@ -25,4 +30,8 @@
     transform: scale(0.93);
     transition: 0.3s;
   }
+}
+
+.fullWidth {
+  width: 100%;
 }

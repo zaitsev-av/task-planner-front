@@ -7,16 +7,17 @@ type ButtonVariantType = 'button' | 'a'
 
 type ButtonProps<T extends ElementType = ButtonVariantType> = {
 	as?: T
+	fullWidth?: boolean
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(
 	props: ButtonProps<T>
 ) => {
-	const { as = 'button', className, ...rest } = props
+	const { as = 'button', className, fullWidth, ...rest } = props
 	const Component = as
 
 	const classNames = {
-		root: clsx(style.root, className)
+		root: clsx(style.root, fullWidth && style.fullWidth, className)
 	}
 
 	return (
