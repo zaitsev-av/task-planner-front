@@ -38,6 +38,7 @@
     "@storybook/nextjs": "^7.6.17",
     "@storybook/react": "^7.6.17",
     "@storybook/test": "^7.6.17",
+    "@storybook/theming": "^7.6.17",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
@@ -49,6 +50,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "storybook": "^7.6.17",
+    "storybook-dark-mode": "^3.0.3",
     "stylelint-config-clean-order": "^5.4.1",
     "stylelint-config-standard-scss": "^13.0.0",
     "typescript": "^5"

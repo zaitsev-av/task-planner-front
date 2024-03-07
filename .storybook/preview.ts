@@ -1,18 +1,25 @@
 import type { Preview } from '@storybook/react'
+import { themes } from '@storybook/theming'
 import { Rubik } from 'next/font/google'
 
 import '../src/styles/index.scss'
 
-const font = Rubik({
-	subsets: ['cyrillic', 'latin'],
-	weight: ['400', '700', '900'],
-	display: 'swap',
-	variable: '--font-rubik',
-	style: 'normal'
-})
 const preview: Preview = {
 	parameters: {
-		actions: { argTypesRegex: '^on[A-Z].*', extends: font },
+		darkMode: {
+			dark: {
+				...themes.dark,
+				appBg: 'rgb(28, 28, 33)',
+				appContentBg: 'rgb(28, 28, 33)',
+				barBg: 'rgb(28, 28, 33)',
+				appBorderRadius: 16
+			},
+			light: { ...themes.light, appBg: '#fffdfd' }
+		},
+		docs: {
+			theme: themes.dark
+		},
+		actions: { argTypesRegex: '^on[A-Z].*' },
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
