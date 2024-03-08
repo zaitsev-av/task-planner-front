@@ -1,13 +1,15 @@
 .root {
   all: unset;
 
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+  transform-style: preserve-3d;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  transform-style: preserve-3d;
 
   padding: 12px 24px;
 
