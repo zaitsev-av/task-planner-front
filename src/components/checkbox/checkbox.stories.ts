@@ -21,7 +21,8 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
 	args: {
-		children: 'Default',
-		onClick: () => console.log('click to button')
+		htmlFor: 'qwerty123',
+		label: 'Checkbox',
+		onChecked: checked => console.log(checked)
 	}
 }

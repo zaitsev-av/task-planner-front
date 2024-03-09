@@ -6,11 +6,17 @@ import style from './button.module.scss'
 type ButtonVariantType = 'button' | 'a'
 
 type ButtonProps<T extends ElementType = ButtonVariantType> = {
+	/**
+	 * Указывает тип элемента @type {'button' | 'a'}
+	 */
 	as?: T
+	/**
+	 *Занимает все свободное место в контейнере
+	 */
 	fullWidth?: boolean
 } & ComponentPropsWithoutRef<T>
 
-export const Button = <T extends ElementType = 'button'>(
+export const Button = <T extends ElementType = ButtonVariantType>(
 	props: ButtonProps<T>
 ) => {
 	const { as = 'button', className, fullWidth, ...rest } = props
@@ -22,8 +28,8 @@ export const Button = <T extends ElementType = 'button'>(
 
 	return (
 		<Component
-			{...rest}
 			className={classNames.root}
+			{...rest}
 		/>
 	)
 }
