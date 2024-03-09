@@ -76,6 +76,9 @@ devDependencies:
   '@storybook/nextjs':
     specifier: ^7.6.17
     version: 7.6.17(@swc/core@1.4.2)(esbuild@0.18.20)(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.1)(typescript@5.3.3)(webpack@5.90.3)
+  '@storybook/preview-api':
+    specifier: ^7.6.17
+    version: 7.6.17
   '@storybook/react':
     specifier: ^7.6.17
     version: 7.6.17(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)

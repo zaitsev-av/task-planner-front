@@ -12,9 +12,9 @@ const preview: Preview = {
 				appBg: 'rgb(28, 28, 33)',
 				appContentBg: 'rgb(28, 28, 33)',
 				barBg: 'rgb(28, 28, 33)',
-				appBorderRadius: 16
+				appBorderRadius: 24
 			},
-			light: { ...themes.light, appBg: '#fffdfd' }
+			light: { ...themes.light, appBg: '#fffdfd', appBorderRadius: 24 }
 		},
 		docs: {
 			theme: themes.dark

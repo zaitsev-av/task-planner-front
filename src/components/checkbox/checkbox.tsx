@@ -5,14 +5,14 @@ import { CheckIcon } from '../../assets/icons'
 
 import style from './checkbox.module.scss'
 
-interface Props
+export interface ICheckboxProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'checked'> {
-	label: string
+	label?: string
 	/**
 	 * Пропс для связывания label и checkbox
 	 */
-	htmlFor: string
-	checked?: boolean
+	htmlFor?: string
+	isChecked?: boolean
 	/**
 	 * Обработчик события для получения состояния checkbox
 	 */
@@ -20,7 +20,14 @@ interface Props
 }
 export const Checkbox = forwardRef(
 	(
-		{ htmlFor, label, onChecked, type = 'checkbox', ...rest }: Props,
+		{
+			htmlFor,
+			label,
+			onChecked,
+			type = 'checkbox',
+			isChecked,
+			...rest
+		}: ICheckboxProps,
 		forwardedRef: Ref<HTMLInputElement>
 	) => {
 		const classNames = {
@@ -35,19 +42,22 @@ export const Checkbox = forwardRef(
 		}
 
 		// todo описать стили для состояния disabled
-
+		//костыль на время без него не срабатывает чекбокс
+		const generatedHtmlFor =
+			htmlFor || `checkbox-${Math.random().toString(36).substring(2)}`
 		return (
 			<div className={classNames.root}>
 				<input
-					type={type}
-					id={htmlFor}
-					className={classNames.input}
-					onChange={onCheckedChange}
+					id={generatedHtmlFor}
 					ref={forwardedRef}
+					type={type}
+					checked={isChecked}
+					onChange={onCheckedChange}
+					className={classNames.input}
 					{...rest}
 				/>
 				<label
-					htmlFor={htmlFor}
+					htmlFor={generatedHtmlFor}
 					className={classNames.label}
 				>
 					<span className={classNames.iconBox}>
