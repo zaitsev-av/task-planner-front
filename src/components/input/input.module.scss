@@ -1,0 +1,50 @@
+.box {
+  position: relative;
+  max-width: 190px;
+  margin: 1em 0;
+
+  .field {
+    width: 100%;
+    padding: 0.8em;
+
+    font-size: 100%;
+
+    background-color: transparent;
+    border: 2px solid rgb(141 109 255);
+    border-radius: 20px;
+    outline: none;
+  }
+
+  .label {
+    pointer-events: none;
+
+    position: absolute;
+    left: 0;
+
+    margin-left: 0.5em;
+    padding: 0.8em;
+
+    font-size: 100%;
+    color: rgb(255 255 255);
+
+    transition: all 0.3s ease;
+  }
+
+  .field:focus,
+  .field:valid {
+    ~ label {
+      transform: translateY(-50%) scale(.9);
+
+      margin: 0;
+      margin-left: 1.3em;
+      padding: 0.4em;
+
+      background-color: #212121;
+    }
+  }
+
+  &.field:focus,
+  &.field:valid {
+    border-color: rgb(37 37 211);
+  }
+}
