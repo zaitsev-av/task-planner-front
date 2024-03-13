@@ -1,6 +1,8 @@
 import { clsx } from 'clsx'
 import { forwardRef, InputHTMLAttributes, Ref } from 'react'
 
+import { PasswordIcon } from '../../assets/icons'
+
 import style from './input.module.scss'
 
 type CommonInputType = Omit<
@@ -55,6 +57,7 @@ export const Input = forwardRef(
 				{withLabel && !placeholder && (
 					<label className={classNames.label}>{labelText}</label>
 				)}
+				<PasswordIcon />
 			</div>
 		)
 	}
