@@ -59,14 +59,12 @@ export const Input = forwardRef(
 				{withLabel && !placeholder && (
 					<label className={classNames.label}>{labelText}</label>
 				)}
-				{/*{isVisible && (*/}
 				<PasswordIcon
 					onClick={() => setIsVisible(prevState => !prevState)}
 					isVisible={isVisible}
 					className={classNames.icon}
 					data-icon={type === 'password' ? 'password' : 'none'}
 				/>
-				{/*)}*/}
 			</div>
 		)
 	}

@@ -2,6 +2,14 @@
   position: relative;
   max-width: 100%;
   margin: 16px 0;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+
+  border: 2px solid var(--color-accent-500);
+  border-radius: 20px;
+  outline: none;
 
   .field {
     width: 100%;
@@ -9,11 +17,21 @@
 
     font-size: 100%;
     color: var(--color-light-100);
-
     background-color: transparent;
-    border: 2px solid var(--color-accent-500);
-    border-radius: 20px;
+    border: none;
     outline: none;
+
+    &:focus, &:focus-visible {
+      .box {
+        border-color: var(--color-accent-300);
+
+        ~ label {
+          transform: translateY(-50%) scale(.9);
+          margin-left: 24px;
+          padding: 8px;
+          background-color: var(--bg-color);
+        }
+      }
   }
 
   .label {
@@ -30,21 +48,12 @@
     transition: all 0.3s ease;
   }
 
-  .field:focus, .field:focus-visible {
-    border-color: var(--color-accent-300);
-
-    ~ label {
-      transform: translateY(-50%) scale(.9);
-      margin-left: 24px;
-      padding: 8px;
-      background-color: var(--bg-color);
-    }
   }
 
   .icon {
-    position: absolute;
-    top: 30%;
-    right: 6%;
+    //position: absolute;
+    //top: 30%;
+    //right: 6%;
 
     &[data-icon='none'] {
       display: none;
