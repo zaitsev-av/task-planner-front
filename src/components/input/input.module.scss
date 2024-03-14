@@ -40,4 +40,14 @@
       background-color: var(--bg-color);
     }
   }
+
+  .icon {
+    position: absolute;
+    top: 30%;
+    right: 6%;
+
+    &[data-icon='none'] {
+      display: none;
+    }
+  }
 }
