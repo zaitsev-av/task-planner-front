@@ -33,6 +33,7 @@ export const Input = forwardRef(
 			withLabel = false,
 			labelText,
 			placeholder,
+			value,
 			...rest
 		}: InputPropsType,
 		forwardRef: Ref<HTMLInputElement>
@@ -47,6 +48,7 @@ export const Input = forwardRef(
 		//todo если есть данные в инпуте, и используется label то не опускать его на текст внутри инпута, оставить его в верхнем положении
 		//todo добавить иконки
 		//todo настроить обработчики событий
+
 		return (
 			<div className={classNames.box}>
 				<input
@@ -54,6 +56,9 @@ export const Input = forwardRef(
 					type={isVisible ? 'text' : type}
 					ref={forwardRef}
 					placeholder={placeholder}
+					data-value={value ? 'skip' : ''}
+					// @ts-ignore
+					required={''}
 					{...rest}
 				/>
 				{withLabel && !placeholder && (

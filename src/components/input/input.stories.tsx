@@ -21,6 +21,8 @@ type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
 	args: {
-		type: 'text'
+		type: 'text',
+		withLabel: true,
+		labelText: 'Example'
 	}
 }

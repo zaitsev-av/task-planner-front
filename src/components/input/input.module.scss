@@ -1,9 +1,11 @@
 .box {
   position: relative;
-  max-width: 100%;
-  margin: 16px 0;
+
   display: flex;
   align-items: center;
+
+  max-width: 100%;
+  margin: 16px 0;
   padding: 5px;
 
 
@@ -17,21 +19,21 @@
 
     font-size: 100%;
     color: var(--color-light-100);
+
     background-color: transparent;
     border: none;
     outline: none;
 
-    &:focus, &:focus-visible {
-      .box {
-        border-color: var(--color-accent-300);
+    &:focus, &:focus-visible, &:valid {
+      border-color: var(--color-accent-300);
 
-        ~ label {
-          transform: translateY(-50%) scale(.9);
-          margin-left: 24px;
-          padding: 8px;
-          background-color: var(--bg-color);
-        }
+      & + .label {
+        transform: translateY(-85%) scale(.9);
+        margin-left: 24px;
+        padding: 8px;
+        background-color: var(--bg-color);
       }
+    }
   }
 
   .label {
@@ -48,13 +50,9 @@
     transition: all 0.3s ease;
   }
 
-  }
+
 
   .icon {
-    //position: absolute;
-    //top: 30%;
-    //right: 6%;
-
     &[data-icon='none'] {
       display: none;
     }
