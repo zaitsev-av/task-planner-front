@@ -30,7 +30,7 @@ export const Input = forwardRef(
 	(
 		{
 			type,
-			withLabel = false,
+			withLabel = true,
 			labelText,
 			placeholder,
 			value,

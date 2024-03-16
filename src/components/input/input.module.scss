@@ -5,7 +5,6 @@
   align-items: center;
 
   max-width: 100%;
-  margin: 16px 0;
   padding: 5px;
 
 
@@ -14,13 +13,15 @@
   outline: none;
 
   .field {
+    max-width: 100%;
     padding: 16px;
-    background-color: transparent;
+
     font-size: 100%;
     color: var(--color-light-100);
+
+    background-color: transparent;
     border: none;
     outline: none;
-    max-width: 100%;
 
     &:is(input:focus, input:valid) ~ label {
       transform: translateY(-85%) scale(.9);
@@ -52,8 +53,9 @@
 
 
   .icon {
-    fill: var(--color-light-900);
     margin-right: 8px;
+    fill: var(--color-light-900);
+
     &[data-icon='none'] {
       display: none;
     }
