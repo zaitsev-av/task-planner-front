@@ -39,14 +39,13 @@ export const Input = forwardRef(
 		forwardRef: Ref<HTMLInputElement>
 	) => {
 		const [isVisible, setIsVisible] = useState<boolean>(false)
+
 		const classNames = {
 			box: clsx(style.box),
 			field: clsx(style.field),
 			label: clsx(style.label),
 			icon: clsx(style.icon)
 		}
-		//todo если есть данные в инпуте, и используется label то не опускать его на текст внутри инпута, оставить его в верхнем положении
-		//todo добавить иконки
 		//todo настроить обработчики событий
 
 		return (
@@ -57,8 +56,7 @@ export const Input = forwardRef(
 					ref={forwardRef}
 					placeholder={placeholder}
 					data-value={value ? 'skip' : ''}
-					// @ts-ignore
-					required={''}
+					required
 					{...rest}
 				/>
 				{withLabel && !placeholder && (

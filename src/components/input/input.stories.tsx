@@ -1,6 +1,5 @@
-import { useArgs } from '@storybook/preview-api'
 import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { Input } from './input'
 
@@ -23,6 +22,53 @@ export const Default: Story = {
 	args: {
 		type: 'text',
 		withLabel: true,
-		labelText: 'Example'
+		labelText: 'Default'
+	},
+	render: function (args) {
+		const [value, setValue] = useState<string>('')
+
+		const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+			console.log(value, '<- input value')
+			setValue(e.target.value)
+		}
+
+		return (
+			<Input
+				{...args}
+				onChange={onChangeHandler}
+				value={value}
+			/>
+		)
+	}
+}
+
+export const Password: Story = {
+	args: {
+		type: 'password',
+		withLabel: true,
+		labelText: 'Password'
+	}
+}
+
+export const Placeholder: Story = {
+	args: {
+		type: 'text',
+		placeholder: 'Placeholder'
+	},
+	render: function (args) {
+		const [value, setValue] = useState<string>('')
+
+		const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+			console.log(value, '<- input value')
+			setValue(e.target.value)
+		}
+
+		return (
+			<Input
+				{...args}
+				onChange={onChangeHandler}
+				value={value}
+			/>
+		)
 	}
 }

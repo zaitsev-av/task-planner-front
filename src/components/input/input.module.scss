@@ -14,25 +14,23 @@
   outline: none;
 
   .field {
-    width: 100%;
     padding: 16px;
-
+    background-color: transparent;
     font-size: 100%;
     color: var(--color-light-100);
-
-    background-color: transparent;
     border: none;
     outline: none;
+    max-width: 100%;
 
-    &:focus, &:focus-visible, &:valid {
-      border-color: var(--color-accent-300);
+    &:is(input:focus, input:valid) ~ label {
+      transform: translateY(-85%) scale(.9);
+      margin-left: 24px;
+      padding: 8px;
+      background-color: var(--bg-color);
+    }
 
-      & + .label {
-        transform: translateY(-85%) scale(.9);
-        margin-left: 24px;
-        padding: 8px;
-        background-color: var(--bg-color);
-      }
+    &:focus ~ label {
+      color: var(--color-light-100);
     }
   }
 
@@ -45,14 +43,17 @@
     margin-left: 8px;
     padding: 16px;
 
-    color: var(--color-light-100);
+    color: var(--color-accent-500);
 
     transition: all 0.3s ease;
+
   }
 
 
 
   .icon {
+    fill: var(--color-light-900);
+    margin-right: 8px;
     &[data-icon='none'] {
       display: none;
     }
