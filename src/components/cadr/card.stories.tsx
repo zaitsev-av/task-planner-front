@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ChangeEvent, CSSProperties, useState } from 'react'
 
 import { Card } from './card'
-import { Input } from '@/components'
+import { Button, Input } from '@/components'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Card> = {
@@ -52,6 +52,9 @@ export const Default: Story = {
 					такие моменты жизнь казалась прекрасной и полной радости."
 				</div>
 				<div style={{ marginTop: 20 }}>{value}</div>
+				<div style={{ marginTop: 20 }}>
+					<Button fullWidth>Example</Button>
+				</div>
 			</Card>
 		)
 	}
