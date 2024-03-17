@@ -11,6 +11,10 @@
     visibility: hidden;
   }
 
+  &.indent {
+   margin-left: 8px;
+  }
+
   .cbx {
     cursor: pointer;
     user-select: none;
@@ -35,6 +39,21 @@
 
         transition: all 0.2s ease;
 
+        &::before {
+          content: "";
+
+          transform: scale(0);
+
+          display: block;
+
+          width: 100%;
+          height: 100%;
+
+          opacity: 1;
+          background: #506eec;
+          border-radius: 50%;
+        }
+
         svg {
           position: absolute;
           top: 3px;
@@ -51,21 +70,6 @@
 
           transition: all 0.3s ease;
           transition-delay: 0.1s;
-        }
-
-        &::before {
-          content: "";
-
-          transform: scale(0);
-
-          display: block;
-
-          width: 100%;
-          height: 100%;
-
-          opacity: 1;
-          background: #506eec;
-          border-radius: 50%;
         }
       }
 
@@ -93,14 +97,14 @@
               border-color: #506eec;
               animation: wave-46 0.4s ease;
 
-              svg {
-                stroke-dashoffset: 0;
-              }
-
               &::before {
                 transform: scale(3.5);
                 opacity: 0;
                 transition: all 0.6s ease;
+              }
+
+              svg {
+                stroke-dashoffset: 0;
               }
             }
           }

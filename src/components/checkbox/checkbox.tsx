@@ -1,22 +1,26 @@
-import { clsx } from 'clsx'
-import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref } from 'react'
+import { clsx } from 'clsx';
+import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref } from 'react';
 
-import { CheckIcon } from '../../assets/icons'
+import { CheckIcon } from '../../assets/icons';
 
-import style from './checkbox.module.scss'
+import style from './checkbox.module.scss';
 
 export interface ICheckboxProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'checked'> {
-	label?: string
+	label?: string;
 	/**
 	 * Пропс для связывания label и checkbox
 	 */
-	htmlFor?: string
-	isChecked?: boolean
+	htmlFor?: string;
+	isChecked?: boolean;
 	/**
 	 * Обработчик события для получения состояния checkbox
 	 */
-	onChecked?: (checked: boolean) => void
+	onChecked?: (checked: boolean) => void;
+	/**
+	 * Добавляет отступ слева 8px
+	 */
+	indent?: boolean;
 }
 export const Checkbox = forwardRef(
 	(
@@ -26,25 +30,26 @@ export const Checkbox = forwardRef(
 			onChecked,
 			type = 'checkbox',
 			isChecked,
+			indent = false,
 			...rest
 		}: ICheckboxProps,
 		forwardedRef: Ref<HTMLInputElement>
 	) => {
 		const classNames = {
-			root: clsx(style.wrapper),
+			root: clsx(indent && style.indent, style.wrapper),
 			input: clsx(style.inpCbx),
 			label: clsx(style.cbx),
 			iconBox: clsx(style.box)
-		}
+		};
 
 		const onCheckedChange = (event: ChangeEvent<HTMLInputElement>) => {
-			onChecked && onChecked(event.target.checked)
-		}
+			onChecked && onChecked(event.target.checked);
+		};
 
 		// todo описать стили для состояния disabled
 		//костыль на время без него не срабатывает чекбокс
 		const generatedHtmlFor =
-			htmlFor || `checkbox-${Math.random().toString(36).substring(2)}`
+			htmlFor || `checkbox-${Math.random().toString(36).substring(2)}`;
 		return (
 			<div className={classNames.root}>
 				<input
@@ -66,6 +71,6 @@ export const Checkbox = forwardRef(
 					<span>{label}</span>
 				</label>
 			</div>
-		)
+		);
 	}
-)
+);

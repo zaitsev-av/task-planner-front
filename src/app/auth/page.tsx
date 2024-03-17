@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 
+import { NO_INDEX_PAGE } from '@/constants/seo.constans';
+
 export const metadata: Metadata = {
-	title: 'Auth'
+	title: 'Auth',
+	...NO_INDEX_PAGE
 };
 
 export default function AuthPage() {

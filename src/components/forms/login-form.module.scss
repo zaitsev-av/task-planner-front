@@ -1,0 +1,16 @@
+.card {
+  min-width: 760px;
+
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .buttons {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 16px;
+    }
+  }
+}
+
