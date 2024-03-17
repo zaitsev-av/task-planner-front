@@ -2,7 +2,9 @@
 
 import { clsx } from 'clsx';
 
-import { Card } from '@/components/cadr';
+import { Typography } from '@/components/typography';
+
+import { Card } from '../../card';
 
 import style from './login-form.module.scss';
 import { Button, Checkbox, Input } from '@/components';
