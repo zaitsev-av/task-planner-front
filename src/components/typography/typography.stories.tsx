@@ -22,3 +22,12 @@ export const Default: Story = {
 		children: 'Default example'
 	}
 };
+
+export const Link: Story = {
+	args: {
+		as: 'a',
+		variant: 'link',
+		children: 'Link example',
+		href: 'https://www.google.com'
+	}
+};
