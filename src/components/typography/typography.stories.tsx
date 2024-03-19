@@ -23,11 +23,51 @@ export const Default: Story = {
 	}
 };
 
+export const Heading: Story = {
+	args: {
+		variant: 'heading',
+		children: 'Heading example'
+	},
+	render: function (args) {
+		const { children, ...rest } = args;
+		return (
+			<div style={{ display: 'flex', flexDirection: 'column', gap: 25 }}>
+				<Typography
+					as={'h1'}
+					{...rest}
+				>
+					H1 {children}
+				</Typography>
+				<Typography
+					as={'h2'}
+					{...rest}
+				>
+					H2 {children}
+				</Typography>
+				<Typography
+					as={'h3'}
+					{...rest}
+				>
+					H3 {children}
+				</Typography>
+			</div>
+		);
+	}
+};
+
 export const Link: Story = {
 	args: {
 		as: 'a',
 		variant: 'link',
 		children: 'Link example',
 		href: 'https://www.google.com'
+	}
+};
+
+export const Error: Story = {
+	args: {
+		as: 'p',
+		variant: 'error',
+		children: 'Error example'
 	}
 };

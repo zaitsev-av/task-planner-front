@@ -28,7 +28,10 @@ export const Typography = <T extends ElementType>(
 	} = props;
 
 	const classNames = {
-		root: clsx(variant === 'link' && style.link)
+		root: clsx(
+			variant === 'link' && style.link,
+			variant === 'error' && style.error
+		)
 	};
 	return (
 		<Component
