@@ -1,5 +1,8 @@
 .card {
+  display: grid;
+  gap: 50px;
   min-width: 760px;
+  padding: 32px;
 
   .root {
     display: flex;

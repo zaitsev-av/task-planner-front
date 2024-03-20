@@ -19,6 +19,12 @@ export const LoginForm = (props: Props) => {
 
 	return (
 		<Card className={classNames.card}>
+			<Typography
+				as={'h1'}
+				variant={'heading'}
+			>
+				Login
+			</Typography>
 			<form className={classNames.root}>
 				<Input
 					type={'text'}
