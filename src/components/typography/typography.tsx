@@ -7,17 +7,18 @@ type TypographyVariantType = 'heading' | 'text' | 'link' | 'error';
 
 type AllowedTags = 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'a';
 interface Props<T extends ElementType> {
-	as?: T;
+	/**
+	 * Возможные типы
+	 * @param {AllowedTags}
+	 */
+	as?: T extends AllowedTags ? T : never; // Сужение типа
 	children: ReactNode;
 	className?: string;
 	variant?: TypographyVariantType;
 }
 
-//todo нужна типизация которая сузит типы до AllowedTags и при этом будут доступны
-// все возможные атрибуты от этого элемента не должно быть так что у span есть href
-
-export const Typography = <T extends ElementType>(
-	props: Props<AllowedTags> & ComponentPropsWithoutRef<T>
+export const Typography = <T extends ElementType = 'span'>(
+	props: Props<T> & Omit<ComponentPropsWithoutRef<T>, keyof Props<T>>
 ) => {
 	const {
 		as: Component = 'span',

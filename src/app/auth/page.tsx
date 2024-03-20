@@ -15,7 +15,6 @@ export default function AuthPage() {
 			<Typography
 				variant={'link'}
 				as={'span'}
-				href={''}
 			>
 				Auth
 			</Typography>
