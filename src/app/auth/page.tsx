@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { NO_INDEX_PAGE } from '@/constants/seo.constans';
 
-import { Typography } from '@/components';
+import { LoginForm, Typography } from '@/components';
 
 export const metadata: Metadata = {
 	title: 'Auth',
@@ -12,12 +12,7 @@ export const metadata: Metadata = {
 export default function AuthPage() {
 	return (
 		<div>
-			<Typography
-				variant={'link'}
-				as={'span'}
-			>
-				Auth
-			</Typography>
+			<LoginForm />
 		</div>
 	);
 }

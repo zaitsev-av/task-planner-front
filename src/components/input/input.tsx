@@ -1,32 +1,29 @@
-import { clsx } from 'clsx'
-import { forwardRef, InputHTMLAttributes, Ref, useState } from 'react'
+'use client';
 
-import { PasswordIcon } from '../../assets/icons'
+import { clsx } from 'clsx';
+import { forwardRef, InputHTMLAttributes, Ref, useState } from 'react';
 
-import style from './input.module.scss'
+import { PasswordIcon } from '../../assets/icons';
+
+import style from './input.module.scss';
 
 type CommonInputType = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
 	'type' | 'placeholder'
->
+>;
 
 interface Props extends CommonInputType {
-	type: 'text' | 'password' | 'email'
-	placeholder?: string
+	type: 'text' | 'password' | 'email';
+	placeholder?: string;
 }
 
-type ConditionalLabelPropsType =
-	| {
-			withLabel: true
-			labelText: string
-	  }
-	| {
-			withLabel?: false
-			labelText: never
-	  }
+type ConditionalLabelPropsType = {
+	withLabel: boolean;
+	labelText?: string;
+};
 
-type InputPropsType = Props & ConditionalLabelPropsType
-export const Input = forwardRef(
+export type InputPropsType = Props & ConditionalLabelPropsType;
+export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 	(
 		{
 			type,
@@ -38,15 +35,14 @@ export const Input = forwardRef(
 		}: InputPropsType,
 		forwardRef: Ref<HTMLInputElement>
 	) => {
-		const [isVisible, setIsVisible] = useState<boolean>(false)
+		const [isVisible, setIsVisible] = useState<boolean>(false);
 
 		const classNames = {
 			box: clsx(style.box),
 			field: clsx(style.field),
 			label: clsx(style.label),
 			icon: clsx(style.icon)
-		}
-		//todo настроить обработчики событий
+		};
 
 		return (
 			<div className={classNames.box}>
@@ -69,6 +65,6 @@ export const Input = forwardRef(
 					data-icon={type === 'password' ? 'password' : 'none'}
 				/>
 			</div>
-		)
+		);
 	}
-)
+);
