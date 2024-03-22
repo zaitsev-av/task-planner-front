@@ -20,7 +20,7 @@ export const ControlledInput = <T extends FieldValues>({
 	shouldUnregister,
 	...rest
 }: ControlledInputProps<T>) => {
-	const {} = useController({
+	const { field, fieldState } = useController({
 		control,
 		name,
 		rules,
@@ -34,6 +34,7 @@ export const ControlledInput = <T extends FieldValues>({
 			type={type}
 			withLabel={withLabel}
 			labelText={labelText}
+			{...field}
 			{...rest}
 		/>
 	);

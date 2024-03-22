@@ -4,6 +4,7 @@ import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import { useLoginForm } from '@/components/forms/login/use-login-form';
 import { Typography } from '@/components/typography';
 
 import { Card } from '../../card';
@@ -19,13 +20,19 @@ export const LoginForm = (props: Props) => {
 		buttonBox: clsx(style.buttons)
 	};
 
-	type FormValues = {
-		login: string;
-		password: string;
-		rememberMe?: boolean;
-	};
-	const { handleSubmit, control } = useForm<FormValues>();
-
+	const {
+		handleSubmit,
+		control,
+		formState: { isDirty, isLoading, isValid }
+	} = useLoginForm();
+	console.log(
+		isDirty,
+		'-> isDirty',
+		isLoading,
+		'-->isLoading',
+		isValid,
+		'---> isValid'
+	);
 	return (
 		<Card className={classNames.card}>
 			<Typography
@@ -40,7 +47,7 @@ export const LoginForm = (props: Props) => {
 			>
 				<ControlledInput
 					control={control}
-					name={'login'}
+					name={'email'}
 					type={'text'}
 					withLabel={true}
 					labelText={'Login'}
