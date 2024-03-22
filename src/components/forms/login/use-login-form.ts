@@ -28,7 +28,7 @@ export const useLoginForm = () => {
 			password: '',
 			rememberMe: false
 		},
-		mode: 'onSubmit',
+		mode: 'onChange',
 		resolver: zodResolver(schema)
 	});
 };

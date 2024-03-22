@@ -6,6 +6,7 @@ import { forwardRef, InputHTMLAttributes, Ref, useState } from 'react';
 import { PasswordIcon } from '../../assets/icons';
 
 import style from './input.module.scss';
+import { Typography } from '@/components';
 
 type CommonInputType = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
@@ -14,6 +15,7 @@ type CommonInputType = Omit<
 
 interface Props extends CommonInputType {
 	type: 'text' | 'password' | 'email';
+	error?: string;
 	placeholder?: string;
 }
 
@@ -27,10 +29,11 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 	(
 		{
 			type,
+			value,
+			error,
 			withLabel = true,
 			labelText,
 			placeholder,
-			value,
 			...rest
 		}: InputPropsType,
 		forwardRef: Ref<HTMLInputElement>
@@ -45,25 +48,35 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 		};
 
 		return (
-			<div className={classNames.box}>
-				<input
-					className={classNames.field}
-					type={isVisible ? 'text' : type}
-					ref={forwardRef}
-					placeholder={placeholder}
-					data-value={value ? 'skip' : ''}
-					required
-					{...rest}
-				/>
-				{withLabel && !placeholder && (
-					<label className={classNames.label}>{labelText}</label>
+			<div>
+				<div className={classNames.box}>
+					<input
+						className={classNames.field}
+						type={isVisible ? 'text' : type}
+						ref={forwardRef}
+						placeholder={placeholder}
+						data-value={value ? 'skip' : ''}
+						required
+						{...rest}
+					/>
+					{withLabel && !placeholder && (
+						<label className={classNames.label}>{labelText}</label>
+					)}
+					<PasswordIcon
+						onClick={() => setIsVisible(prevState => !prevState)}
+						isVisible={isVisible}
+						className={classNames.icon}
+						data-icon={type === 'password' ? 'password' : 'none'}
+					/>
+				</div>
+				{error && (
+					<Typography
+						as={'span'}
+						variant={'error'}
+					>
+						{error}
+					</Typography>
 				)}
-				<PasswordIcon
-					onClick={() => setIsVisible(prevState => !prevState)}
-					isVisible={isVisible}
-					className={classNames.icon}
-					data-icon={type === 'password' ? 'password' : 'none'}
-				/>
 			</div>
 		);
 	}
