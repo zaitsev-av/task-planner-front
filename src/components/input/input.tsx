@@ -8,13 +8,19 @@ import { PasswordIcon } from '../../assets/icons';
 import style from './input.module.scss';
 import { Typography } from '@/components';
 
+export enum EInputType {
+	Text = 'text',
+	Password = 'password',
+	Email = 'email'
+}
+
 type CommonInputType = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
 	'type' | 'placeholder'
 >;
 
 interface Props extends CommonInputType {
-	type: 'text' | 'password' | 'email';
+	type: EInputType;
 	error?: string;
 	placeholder?: string;
 }
@@ -34,6 +40,7 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 			withLabel = true,
 			labelText,
 			placeholder,
+			disabled,
 			...rest
 		}: InputPropsType,
 		forwardRef: Ref<HTMLInputElement>
@@ -41,11 +48,26 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 		const [isVisible, setIsVisible] = useState<boolean>(false);
 
 		const classNames = {
-			box: clsx(style.box),
+			box: clsx(style.box, disabled && style.disabled),
 			field: clsx(style.field),
-			label: clsx(style.label),
-			icon: clsx(style.icon)
+			label: clsx(style.label, disabled && style.disabled),
+			icon: clsx(style.icon, disabled && style.disabled),
+			button: clsx(style.iconButton)
 		};
+
+		const passwordButton = type === EInputType.Password && (
+			<button
+				disabled={disabled}
+				className={classNames.button}
+				onClick={() => setIsVisible(prevState => !prevState)}
+			>
+				<PasswordIcon
+					isVisible={isVisible}
+					className={classNames.icon}
+					data-icon={type === 'password' ? 'password' : 'none'}
+				/>
+			</button>
+		);
 
 		return (
 			<div>
@@ -56,18 +78,19 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 						ref={forwardRef}
 						placeholder={placeholder}
 						data-value={value ? 'skip' : ''}
+						disabled={disabled}
 						required
 						{...rest}
 					/>
 					{withLabel && !placeholder && (
-						<label className={classNames.label}>{labelText}</label>
+						<label
+							className={classNames.label}
+							aria-disabled={disabled}
+						>
+							{labelText}
+						</label>
 					)}
-					<PasswordIcon
-						onClick={() => setIsVisible(prevState => !prevState)}
-						isVisible={isVisible}
-						className={classNames.icon}
-						data-icon={type === 'password' ? 'password' : 'none'}
-					/>
+					{passwordButton}
 				</div>
 				{error && (
 					<Typography

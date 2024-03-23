@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, useState } from 'react';
 
-import { Input } from './input';
+import { EInputType, Input } from './input';
 import { Typography } from '@/components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
 	args: {
-		type: 'text',
+		type: EInputType.Text,
 		withLabel: true,
 		labelText: 'Default'
 	},
@@ -45,7 +45,7 @@ export const Default: Story = {
 
 export const Password: Story = {
 	args: {
-		type: 'password',
+		type: EInputType.Password,
 		withLabel: true,
 		labelText: 'Password'
 	}
@@ -53,7 +53,7 @@ export const Password: Story = {
 
 export const Placeholder: Story = {
 	args: {
-		type: 'text',
+		type: EInputType.Text,
 		placeholder: 'Placeholder'
 	},
 	render: function (args) {
@@ -76,7 +76,7 @@ export const Placeholder: Story = {
 
 export const Error: Story = {
 	args: {
-		type: 'text',
+		type: EInputType.Text,
 		withLabel: true,
 		labelText: 'Error input'
 	},
@@ -110,5 +110,14 @@ export const Error: Story = {
 				/>
 			</div>
 		);
+	}
+};
+
+export const Disabled: Story = {
+	args: {
+		type: EInputType.Password,
+		withLabel: true,
+		labelText: 'Disabled input',
+		disabled: true
 	}
 };

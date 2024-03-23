@@ -9,8 +9,14 @@
 
 
   border: 2px solid var(--color-accent-500);
-  border-radius: 20px;
+  border-radius: 16px;
   outline: none;
+
+  &.disabled {
+    user-select: none;
+    border: 2px solid var(--color-disabled);
+  }
+
 
   .field {
     width: 100%;
@@ -23,15 +29,19 @@
     border: none;
     outline: none;
 
+    &:disabled {
+      color: var(--color-disabled);
+    }
+
+    &:focus ~ label {
+      color: var(--color-light-100);
+    }
+
     &:is(input:focus, input:valid) ~ label {
       transform: translateY(-85%) scale(.9);
       margin-left: 24px;
       padding: 8px;
       background-color: var(--bg-color);
-    }
-
-    &:focus ~ label {
-      color: var(--color-light-100);
     }
   }
 
@@ -48,14 +58,36 @@
 
     transition: all 0.3s ease;
 
+    &.disabled {
+      color: var(--color-disabled);
+    }
+
+  }
+
+  .iconButton {
+    margin-right: 8px;
+    background: transparent;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--color-accent-500);
+    }
   }
 
   .icon {
-    margin-right: 8px;
     fill: var(--color-light-900);
+
+    &.disabled {
+      fill: var(--color-disabled)
+    }
 
     &[data-icon='none'] {
       display: none;
     }
   }
+
 }
