@@ -1,8 +1,8 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
-import { Checkbox } from './checkbox'
+import { Checkbox } from './checkbox';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Checkbox> = {
@@ -12,10 +12,10 @@ const meta: Meta<typeof Checkbox> = {
 		layout: 'centered'
 	},
 	tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Checkbox>
+export default meta;
+type Story = StoryObj<typeof Checkbox>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 
@@ -23,19 +23,19 @@ export const Default: Story = {
 	args: {
 		label: 'Example'
 	}
-}
+};
 
 export const Label: Story = {
 	args: {
-		htmlFor: 'qwerty1234',
+		id: 'qwerty1234',
 		label: 'Label',
 		isChecked: true
 	},
 	render: function RenderLabel(args) {
-		const [isChecked, setChecked] = useState(args.isChecked)
+		const [isChecked, setChecked] = useState(args.isChecked);
 		function onChange() {
-			console.log(isChecked)
-			setChecked(prevState => !prevState)
+			console.log(isChecked);
+			setChecked(prevState => !prevState);
 		}
 
 		return (
@@ -44,6 +44,13 @@ export const Label: Story = {
 				isChecked={isChecked}
 				onChecked={onChange}
 			/>
-		)
+		);
 	}
-}
+};
+
+export const Disabled: Story = {
+	args: {
+		label: 'Example disabled',
+		disabled: true
+	}
+};

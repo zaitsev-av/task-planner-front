@@ -85,6 +85,20 @@
         }
       }
     }
+
+    &.disabled {
+      color: var(--color-disabled);
+
+      &:hover {
+        span {
+          &:first-child {
+            border-color: var(--color-disabled);
+            box-shadow: 0 0 10px var(--color-disabled);
+          }
+        }
+      }
+
+    }
   }
 
   .inpCbx {
