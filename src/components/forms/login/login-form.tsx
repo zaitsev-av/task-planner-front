@@ -2,7 +2,6 @@
 
 import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
-import { FormProvider, useForm } from 'react-hook-form';
 
 import { useLoginForm } from '@/components/forms/login/use-login-form';
 import { Typography } from '@/components/typography';
@@ -10,14 +9,14 @@ import { Typography } from '@/components/typography';
 import { Card } from '../../card';
 
 import style from './login-form.module.scss';
-import { Button, Checkbox, ControlledInput } from '@/components';
+import { Button, Checkbox, ControlledInput, EInputType } from '@/components';
 
 interface Props {}
 export const LoginForm = (props: Props) => {
 	const classNames = {
 		card: clsx(style.card),
 		root: clsx(style.root),
-		buttonBox: clsx(style.buttons)
+		info: clsx(style.info)
 	};
 
 	const {
@@ -33,6 +32,7 @@ export const LoginForm = (props: Props) => {
 		isValid,
 		'---> isValid'
 	);
+	const isDisabled = !isDirty || !isValid || isLoading;
 	return (
 		<Card className={classNames.card}>
 			<Typography
@@ -48,13 +48,13 @@ export const LoginForm = (props: Props) => {
 				<ControlledInput
 					control={control}
 					name={'email'}
-					type={'text'}
+					type={EInputType.Text}
 					withLabel={true}
 					labelText={'Login'}
 				/>
 				<ControlledInput
 					name={'password'}
-					type={'password'}
+					type={EInputType.Password}
 					withLabel={true}
 					labelText={'Password'}
 					control={control}
@@ -63,11 +63,23 @@ export const LoginForm = (props: Props) => {
 					label={'Remember me'}
 					indent={true}
 				/>
-				<div className={classNames.buttonBox}>
-					<Button type={'submit'}>Login</Button>
-					<Button type={'button'}>Cansel</Button>
-				</div>
+				<Button
+					type={'submit'}
+					fullWidth={true}
+					disabled={isDisabled}
+				>
+					Login
+				</Button>
 			</form>
+			<div className={classNames.info}>
+				<Typography
+					as={'a'}
+					href={'#'}
+					variant={'link'}
+				>
+					Registration
+				</Typography>
+			</div>
 			<DevTool control={control} />
 		</Card>
 	);

@@ -50,7 +50,7 @@
           height: 100%;
 
           opacity: 1;
-          background: #506eec;
+          background: var(--color-info-500);
           border-radius: 50%;
         }
 
@@ -81,7 +81,7 @@
     &:hover {
       span {
         &:first-child {
-          border-color: #506eec;
+          border-color: var(--color-info-500);
         }
       }
     }
@@ -93,8 +93,8 @@
         .cbx {
           span {
             &:first-child {
-              background: #506eec;
-              border-color: #506eec;
+              background: var(--color-info-500);
+              border-color: var(--color-info-500);
               animation: wave-46 0.4s ease;
 
               &::before {

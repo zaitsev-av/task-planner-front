@@ -1,19 +1,18 @@
 .card {
   display: grid;
-  gap: 50px;
-  min-width: 760px;
+  gap: 40px;
+  width: 480px;
   padding: 32px;
 
   .root {
     display: flex;
     flex-direction: column;
     gap: 45px;
+    
+  }
 
-    .buttons {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 16px;
-    }
+  .info {
+    text-align: center;
   }
 }
 

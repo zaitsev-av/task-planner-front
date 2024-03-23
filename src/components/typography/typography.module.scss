@@ -1,7 +1,20 @@
+@keyframes shake {
+  0%,100% {
+    transform: translateZ(0)
+  }
+
+  10%,30%,50%,70%,90% {
+    transform: translate3d(-6px,0,0)
+  }
+
+  20%,40%,60%,80% {
+    transform: translate3d(6px,0,0)
+  }
+}
+
 .link {
   position: relative;
-  font-size: var(--font-size-m);
-  color: var(--color-warning-100);
+  color: var(--color-info-100);
   text-decoration: none;
 
   &::before {
@@ -13,15 +26,15 @@
     transform: scaleX(0);
 
     width: 100%;
-    height: 3px;
+    height: 2px;
 
-    background-color: var(--color-warning-100);
+    background-color: var(--color-info-100);
 
     transition: 0.5s;
   }
 
   &:hover {
-    color: var(--color-warning-300);
+    color: var(--color-info-300);
   }
 
   &:hover::before {
@@ -31,28 +44,11 @@
 
 .error {
   position: relative;
-  font-size: var(--font-size-m);
   color: var(--color-danger-300);
 
   &:hover {
-    animation-name: shakeX;
+    animation-name: shake;
     animation-duration: 1s;
     animation-timing-function: linear;
-  }
-
-
-}
-
-@keyframes shakeX {
-  0%,100% {
-    transform: translateZ(0)
-  }
-
-  10%,30%,50%,70%,90% {
-    transform: translate3d(-6px,0,0)
-  }
-
-  20%,40%,60%,80% {
-    transform: translate3d(6px,0,0)
   }
 }
