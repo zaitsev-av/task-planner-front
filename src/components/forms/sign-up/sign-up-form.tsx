@@ -3,7 +3,7 @@
 import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
 
-import { useSignUpForm } from '@/components/forms/register/use-sign-up-form';
+import { useSignUpForm } from '@/components/forms/sign-up/use-sign-up-form';
 
 import style from './sign-up-form.module.scss';
 import {
@@ -19,6 +19,7 @@ export const SignUpForm = (props: Props) => {
 	const classNames = {
 		card: clsx(style.card),
 		root: clsx(style.root),
+		fields: clsx(style.field),
 		info: clsx(style.info)
 	};
 
@@ -64,6 +65,7 @@ export const SignUpForm = (props: Props) => {
 					type={EInputType.Text}
 					withLabel={true}
 					labelText={'Email'}
+					className={classNames.fields}
 				/>
 				<ControlledInput
 					name={'password'}
@@ -71,6 +73,7 @@ export const SignUpForm = (props: Props) => {
 					withLabel={true}
 					labelText={'Password'}
 					control={control}
+					className={classNames.fields}
 				/>
 				<ControlledInput
 					name={'cPassword'}
@@ -79,6 +82,7 @@ export const SignUpForm = (props: Props) => {
 					labelText={'Confirm password'}
 					control={control}
 					onBlur={onBlurConfirmPassword}
+					className={classNames.fields}
 				/>
 				<Button
 					type={'submit'}

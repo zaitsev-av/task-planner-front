@@ -30,8 +30,9 @@ export const Typography = <T extends ElementType = 'span'>(
 
 	const classNames = {
 		root: clsx(
-			variant === 'link' && style.link,
-			variant === 'error' && style.error
+			style[variant]
+			// variant === 'link' && style.link,
+			// variant === 'error' && style.error
 		)
 	};
 	return (

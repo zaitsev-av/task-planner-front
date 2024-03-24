@@ -20,6 +20,7 @@ export const LoginForm = (props: Props) => {
 	const classNames = {
 		card: clsx(style.card),
 		root: clsx(style.root),
+		fields: clsx(style.field),
 		info: clsx(style.info)
 	};
 
@@ -49,6 +50,7 @@ export const LoginForm = (props: Props) => {
 					type={EInputType.Text}
 					withLabel={true}
 					labelText={'Login'}
+					className={classNames.fields}
 				/>
 				<ControlledInput
 					name={'password'}
@@ -56,6 +58,7 @@ export const LoginForm = (props: Props) => {
 					withLabel={true}
 					labelText={'Password'}
 					control={control}
+					className={classNames.fields}
 				/>
 				<ControlledCheckbox
 					control={control}

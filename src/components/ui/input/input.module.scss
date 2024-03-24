@@ -43,6 +43,15 @@
       padding: 8px;
       background-color: var(--bg-color);
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      background-color: transparent !important;
+      transition: background-color 5000s ease-in-out 0s; /* без анимации не работает */
+
+      -webkit-text-fill-color: var(--color-light-100) !important;
+    }
   }
 
   .label {
@@ -89,5 +98,4 @@
       display: none;
     }
   }
-
 }

@@ -8,7 +8,11 @@
     display: flex;
     flex-direction: column;
     gap: 45px;
-    
+
+    .field {
+      margin-bottom: 5px;
+    }
+
   }
 
   .info {

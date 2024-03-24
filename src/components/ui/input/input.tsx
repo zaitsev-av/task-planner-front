@@ -40,6 +40,7 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 			labelText,
 			placeholder,
 			disabled,
+			className,
 			...rest
 		}: InputPropsType,
 		forwardRef: Ref<HTMLInputElement>
@@ -47,7 +48,7 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 		const [isVisible, setIsVisible] = useState<boolean>(false);
 
 		const classNames = {
-			box: clsx(style.box, disabled && style.disabled),
+			box: clsx(style.box, disabled && style.disabled, className),
 			field: clsx(style.field),
 			label: clsx(style.label, disabled && style.disabled),
 			icon: clsx(style.icon, disabled && style.disabled),
@@ -93,7 +94,7 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
 				</div>
 				{error && (
 					<Typography
-						as={'span'}
+						as={'p'}
 						variant={'error'}
 					>
 						{error}
