@@ -3,10 +3,9 @@
 import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
 
-import { ControlledCheckbox } from '@/components/controlled-checkbox';
-import { useLoginForm } from '@/components/forms/login/use-login-form';
+import { useSignUpForm } from '@/components/forms/register/use-sign-up-form';
 
-import style from './login-form.module.scss';
+import style from './sign-up-form.module.scss';
 import {
 	Button,
 	Card,
@@ -16,7 +15,7 @@ import {
 } from '@/components';
 
 interface Props {}
-export const LoginForm = (props: Props) => {
+export const SignUpForm = (props: Props) => {
 	const classNames = {
 		card: clsx(style.card),
 		root: clsx(style.root),
@@ -24,10 +23,26 @@ export const LoginForm = (props: Props) => {
 	};
 
 	const {
+		watch,
+		setError,
+		clearErrors,
 		handleSubmit,
 		control,
 		formState: { isDirty, isLoading, isValid }
-	} = useLoginForm();
+	} = useSignUpForm();
+
+	const onBlurConfirmPassword = () => {
+		//решает проблему когда поля были заполнены, но юзер изменил пароль
+		// ошибка не показывается, с этой функцией покажет при клике на поле.
+		if (watch('password') != watch('cPassword')) {
+			return setError('cPassword', {
+				message: 'Пароли не совпадают',
+				type: 'custom'
+			});
+		}
+
+		clearErrors('cPassword');
+	};
 
 	const isDisabled = !isDirty || !isValid || isLoading;
 	//todo добавить reset после отправки формы
@@ -37,7 +52,7 @@ export const LoginForm = (props: Props) => {
 				as={'h1'}
 				variant={'heading'}
 			>
-				Login
+				Sign Up
 			</Typography>
 			<form
 				className={classNames.root}
@@ -48,7 +63,7 @@ export const LoginForm = (props: Props) => {
 					name={'email'}
 					type={EInputType.Text}
 					withLabel={true}
-					labelText={'Login'}
+					labelText={'Email'}
 				/>
 				<ControlledInput
 					name={'password'}
@@ -57,27 +72,29 @@ export const LoginForm = (props: Props) => {
 					labelText={'Password'}
 					control={control}
 				/>
-				<ControlledCheckbox
+				<ControlledInput
+					name={'cPassword'}
+					type={EInputType.Password}
+					withLabel={true}
+					labelText={'Confirm password'}
 					control={control}
-					name={'rememberMe'}
-					label={'Remember me'}
-					indent={true}
+					onBlur={onBlurConfirmPassword}
 				/>
 				<Button
 					type={'submit'}
 					fullWidth={true}
 					disabled={isDisabled}
 				>
-					Login
+					Sign Up
 				</Button>
 			</form>
 			<div className={classNames.info}>
 				<Typography
 					as={'a'}
-					href={'редирект на регистрацию'}
+					href={'редирект на страницу логина'}
 					variant={'link'}
 				>
-					Sign Up
+					Do you already have an account?
 				</Typography>
 			</div>
 			<DevTool control={control} />

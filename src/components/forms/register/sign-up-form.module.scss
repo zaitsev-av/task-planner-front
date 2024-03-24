@@ -1,0 +1,18 @@
+.card {
+  display: grid;
+  gap: 40px;
+  width: 480px;
+  padding: 32px;
+
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    
+  }
+
+  .info {
+    text-align: center;
+  }
+}
+
