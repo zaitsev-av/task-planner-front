@@ -7,7 +7,7 @@ import {
 	useId
 } from 'react';
 
-import { CheckIcon } from '../../assets/icons';
+import { CheckIcon } from '../../../assets/icons';
 
 import style from './checkbox.module.scss';
 
@@ -53,11 +53,12 @@ export const Checkbox = forwardRef(
 			onChecked && onChecked(event.target.checked);
 		};
 
-		const elementId = id || useId();
+		const elementId = useId();
+
 		return (
 			<div className={classNames.root}>
 				<input
-					id={elementId}
+					id={id || elementId}
 					ref={forwardedRef}
 					type={type}
 					disabled={disabled}
@@ -67,7 +68,7 @@ export const Checkbox = forwardRef(
 					{...rest}
 				/>
 				<label
-					htmlFor={elementId}
+					htmlFor={id || elementId}
 					className={classNames.label}
 				>
 					<span className={classNames.iconBox}>

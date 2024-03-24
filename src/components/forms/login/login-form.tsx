@@ -3,12 +3,12 @@
 import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
 
+import { ControlledCheckbox } from '@/components/controlled-checkbox';
 import { useLoginForm } from '@/components/forms/login/use-login-form';
-import { Typography } from '@/components/typography';
-
-import { Card } from '../../card';
 
 import style from './login-form.module.scss';
+import { Card } from '@/components';
+import { Typography } from '@/components';
 import { Button, Checkbox, ControlledInput, EInputType } from '@/components';
 
 interface Props {}
@@ -24,15 +24,9 @@ export const LoginForm = (props: Props) => {
 		control,
 		formState: { isDirty, isLoading, isValid }
 	} = useLoginForm();
-	console.log(
-		isDirty,
-		'-> isDirty',
-		isLoading,
-		'-->isLoading',
-		isValid,
-		'---> isValid'
-	);
+
 	const isDisabled = !isDirty || !isValid || isLoading;
+	//todo добавить reset после отправки формы
 	return (
 		<Card className={classNames.card}>
 			<Typography
@@ -59,7 +53,9 @@ export const LoginForm = (props: Props) => {
 					labelText={'Password'}
 					control={control}
 				/>
-				<Checkbox
+				<ControlledCheckbox
+					control={control}
+					name={'rememberMe'}
 					label={'Remember me'}
 					indent={true}
 				/>

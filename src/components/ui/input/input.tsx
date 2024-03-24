@@ -3,9 +3,8 @@
 import { clsx } from 'clsx';
 import { forwardRef, InputHTMLAttributes, Ref, useState } from 'react';
 
-import { PasswordIcon } from '../../assets/icons';
-
 import style from './input.module.scss';
+import { PasswordIcon } from '@/assets';
 import { Typography } from '@/components';
 
 export enum EInputType {

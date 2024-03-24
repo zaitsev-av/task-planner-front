@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, CSSProperties, useState } from 'react';
 
 import { Card } from './card';
-import { Button, Input } from '@/components';
+import { Button, EInputType, Input } from '@/components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Card> = {
@@ -38,7 +38,7 @@ export const Default: Story = {
 		return (
 			<Card className={`${exampleStyle}`}>
 				<Input
-					type={'text'}
+					type={EInputType.Text}
 					withLabel={true}
 					labelText={'Example card'}
 					onChange={onChangeHandler}
