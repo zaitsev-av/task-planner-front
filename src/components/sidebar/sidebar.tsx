@@ -2,16 +2,24 @@ import { clsx } from 'clsx';
 import { useState } from 'react';
 
 import style from './sidebar.module.scss';
-import { BurgerIcon, CloseIcon, DashboardIcon } from '@/assets';
-
-//todo добавить нормальные иконки, расположить правильно пункты меню
+import {
+	BurgerIcon,
+	CloseIcon,
+	DashboardIcon,
+	LogoIcon,
+	LogoutIcon,
+	ProfileIcon,
+	SettingsIcon,
+	StatisticIcon
+} from '@/assets';
+import { Typography } from '@/components';
 
 const navItems = [
 	{ title: 'dashboard', icon: <DashboardIcon /> },
-	{ title: 'profile', icon: <DashboardIcon /> },
-	{ title: 'settings', icon: <DashboardIcon /> },
-	{ title: 'statistic', icon: <DashboardIcon /> },
-	{ title: 'logout', icon: <DashboardIcon /> }
+	{ title: 'profile', icon: <ProfileIcon /> },
+	{ title: 'statistic', icon: <StatisticIcon /> },
+	{ title: 'settings', icon: <SettingsIcon /> },
+	{ title: 'logout', icon: <LogoutIcon /> }
 ];
 
 export const Sidebar = () => {
@@ -37,8 +45,14 @@ export const Sidebar = () => {
 					>
 						<span>{isOpen ? <CloseIcon /> : <BurgerIcon />}</span>
 					</button>
-					<span className={classNames.logo}>Task Planner</span>
-					{/*<img src="'''" alt="'''" className={cn.logo} />*/}
+					{/*<span className={classNames.logo}>Task Planner</span>*/}
+					<Typography
+						as={'h2'}
+						variant={'heading'}
+					>
+						Task Planner
+					</Typography>
+					<LogoIcon className={classNames.logo} />
 				</header>
 				<nav className={classNames.menu}>
 					{navItems.map((item, index) => {
@@ -48,7 +62,7 @@ export const Sidebar = () => {
 								className={classNames.sb_button}
 							>
 								<span>{item.icon}</span>
-								<p>{item.title}</p>
+								<Typography as={'p'}>{item.title}</Typography>
 							</button>
 						);
 					})}

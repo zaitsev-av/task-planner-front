@@ -3,3 +3,8 @@ export { default as PasswordIcon } from './password';
 export { default as DashboardIcon } from './dashboard';
 export { default as CloseIcon } from './close';
 export { default as BurgerIcon } from './burger';
+export { default as LogoutIcon } from './logout';
+export { default as StatisticIcon } from './statistic';
+export { default as ProfileIcon } from './profile';
+export { default as SettingsIcon } from './settings';
+export { default as LogoIcon } from './logo';
