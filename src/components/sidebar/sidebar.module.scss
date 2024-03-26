@@ -1,12 +1,7 @@
-button {
-  cursor: pointer;
-  padding: 0;
-  background: transparent;
-  border: 0;
-}
 
 .sidebar {
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
 
@@ -19,6 +14,12 @@ button {
   border-radius: 0 16px 16px 0;;
 
   transition: width 0.4s;
+
+  & button {
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
 
   .sidebar_liner {
     position: absolute;

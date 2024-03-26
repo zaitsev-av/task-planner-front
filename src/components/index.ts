@@ -5,3 +5,6 @@ export * from './ui/card';
 export * from './forms';
 export * from './ui/typography';
 export * from './controlled-input';
+export * from './controlled-checkbox';
+export * from './heading';
+export * from './layout';
