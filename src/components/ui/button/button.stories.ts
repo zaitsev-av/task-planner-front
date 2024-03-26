@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './button'
+import { Button } from './button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -13,10 +13,10 @@ const meta = {
 	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
 	tags: ['autodocs']
 	// More on argTypes: https://storybook.js.org/docs/api/argtypes
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Button>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
@@ -24,7 +24,7 @@ export const Default: Story = {
 		children: 'Default',
 		onClick: () => console.log('click to button')
 	}
-}
+};
 
 export const FullWidth: Story = {
 	args: {
@@ -32,7 +32,7 @@ export const FullWidth: Story = {
 		children: 'Full width',
 		onClick: () => console.log('click to full width button')
 	}
-}
+};
 
 export const Link: Story = {
 	args: {
@@ -40,4 +40,12 @@ export const Link: Story = {
 		children: 'Link',
 		onClick: () => console.log('click to link button')
 	}
-}
+};
+
+export const Disabled: Story = {
+	args: {
+		children: 'Disabled',
+		disabled: true,
+		onClick: () => console.log('click to link button')
+	}
+};

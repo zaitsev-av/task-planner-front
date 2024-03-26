@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Heading } from '@/components/heading/heading';
+import { Heading } from './heading';
 
 const meta = {
 	title: 'Layout/Heading',
@@ -19,10 +19,6 @@ export const Default: Story = {
 		name: 'Heading  example'
 	},
 	render: function ({ name }) {
-		return (
-			<div style={{ display: 'flex', width: '100vh', height: '100vh' }}>
-				<Heading name={name} />
-			</div>
-		);
+		return <Heading name={name} />;
 	}
 };
