@@ -27,6 +27,8 @@ button {
     width: 260px;
 
     .sidebar_header {
+      user-select: none;
+
       display: flex;
       gap: 10px;
       align-items: center;

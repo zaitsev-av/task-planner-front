@@ -45,7 +45,6 @@ export const Sidebar = () => {
 					>
 						<span>{isOpen ? <CloseIcon /> : <BurgerIcon />}</span>
 					</button>
-					{/*<span className={classNames.logo}>Task Planner</span>*/}
 					<Typography
 						as={'h2'}
 						variant={'heading'}
@@ -55,14 +54,14 @@ export const Sidebar = () => {
 					<LogoIcon className={classNames.logo} />
 				</header>
 				<nav className={classNames.menu}>
-					{navItems.map((item, index) => {
+					{navItems.map(({ icon, title }, index) => {
 						return (
 							<button
 								key={index}
 								className={classNames.sb_button}
 							>
-								<span>{item.icon}</span>
-								<Typography as={'p'}>{item.title}</Typography>
+								<span>{icon}</span>
+								<Typography as={'p'}>{title}</Typography>
 							</button>
 						);
 					})}
