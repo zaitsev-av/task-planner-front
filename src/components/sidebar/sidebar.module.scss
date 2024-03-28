@@ -102,11 +102,13 @@
   height: 56px;
   padding: 0 10px;
 
+
   line-height: 1;
   color: var(--color-light-100);
   text-transform: capitalize;
 
   opacity: 0.8;
+  background: var(--bg-color);
   border-radius: 8px;
 
   span {

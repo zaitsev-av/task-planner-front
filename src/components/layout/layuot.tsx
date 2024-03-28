@@ -5,9 +5,9 @@ import style from './layuot.module.scss';
 
 export const Layout = () => {
 	return (
-		<>
-			<Sidebar />
+		<div className={style.root}>
 			<Heading name={'Heading'} />
-		</>
+			<Sidebar />
+		</div>
 	);
 };
