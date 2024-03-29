@@ -1,13 +1,19 @@
+import { ReactNode } from 'react';
+
 import { Heading } from '@/components/heading';
 import { Sidebar } from '@/components/sidebar';
 
 import style from './layuot.module.scss';
 
-export const Layout = () => {
+interface Props {
+	children: ReactNode;
+}
+export const Layout = ({ children }: Props) => {
 	return (
 		<div className={style.root}>
-			<Heading name={'Heading'} />
 			<Sidebar />
+			<Heading name={'Heading'} />
+			<main>{children}</main>
 		</div>
 	);
 };

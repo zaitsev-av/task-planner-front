@@ -16,7 +16,7 @@ import {
 } from '@/components';
 
 interface Props {}
-export const LoginForm = (props: Props) => {
+export default function LoginForm(props: Props) {
 	const classNames = {
 		card: clsx(style.card),
 		root: clsx(style.root),
@@ -86,4 +86,4 @@ export const LoginForm = (props: Props) => {
 			<DevTool control={control} />
 		</Card>
 	);
-};
+}
