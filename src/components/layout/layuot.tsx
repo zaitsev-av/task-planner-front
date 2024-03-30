@@ -13,7 +13,7 @@ export const Layout = ({ children }: Props) => {
 		<div className={style.root}>
 			<Sidebar />
 			<Heading name={'Heading'} />
-			<main>{children}</main>
+			<main className={style.body}>{children}</main>
 		</div>
 	);
 };
