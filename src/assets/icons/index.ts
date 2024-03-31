@@ -8,3 +8,4 @@ export { default as StatisticIcon } from './statistic';
 export { default as ProfileIcon } from './profile';
 export { default as SettingsIcon } from './settings';
 export { default as LogoIcon } from './logo';
+export { default as TasksIcon } from './tasks';

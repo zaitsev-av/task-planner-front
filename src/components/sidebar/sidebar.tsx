@@ -3,6 +3,8 @@
 import { clsx } from 'clsx';
 import { useState } from 'react';
 
+import { APP_PAGES } from '@/config/pages-url.config';
+
 import style from './sidebar.module.scss';
 import {
 	BurgerIcon,
@@ -12,15 +14,17 @@ import {
 	LogoutIcon,
 	ProfileIcon,
 	SettingsIcon,
-	StatisticIcon
+	StatisticIcon,
+	TasksIcon
 } from '@/assets';
 import { Typography } from '@/components';
 
 const navItems = [
-	{ title: 'dashboard', icon: <DashboardIcon /> },
-	{ title: 'profile', icon: <ProfileIcon /> },
-	{ title: 'statistic', icon: <StatisticIcon /> },
-	{ title: 'settings', icon: <SettingsIcon /> },
+	{ title: 'dashboard', icon: <DashboardIcon />, link: APP_PAGES.HOME },
+	{ title: 'profile', icon: <ProfileIcon />, link: '/' },
+	{ title: 'tasks', icon: <TasksIcon />, link: APP_PAGES.TASKS },
+	{ title: 'statistic', icon: <StatisticIcon />, link: APP_PAGES.STATISTICS },
+	{ title: 'settings', icon: <SettingsIcon />, link: APP_PAGES.SETTINGS },
 	{ title: 'logout', icon: <LogoutIcon /> }
 ];
 
