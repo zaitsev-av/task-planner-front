@@ -1,12 +1,14 @@
 .root {
   display: grid;
   grid:
-    "heading heading" auto
-    "leftSide body" 1fr / auto;
+    "heading heading"
+    "leftSide body";
+  grid-template-columns: 70px 4fr;
+  grid-template-rows: max-content 1fr;
   gap: 8px;
 
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   /* background-image: linear-gradient(342deg, rgb(71 224 17 / 15%) 0%,rgb(159 153 81 / 15%) 100%),linear-gradient(432deg, rgb(5 10 46),rgb(1 1 1)); */
 }

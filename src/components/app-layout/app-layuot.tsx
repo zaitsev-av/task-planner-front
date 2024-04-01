@@ -1,14 +1,14 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Heading } from '@/components/heading';
 import { Sidebar } from '@/components/sidebar';
 
-import style from './layuot.module.scss';
+import style from './app-layuot.module.scss';
 
 interface Props {
 	children: ReactNode;
 }
-export const Layout = ({ children }: Props) => {
+export const AppLayout = ({ children }: Props) => {
 	return (
 		<div className={style.root}>
 			<Sidebar />

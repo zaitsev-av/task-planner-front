@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Layout } from './layuot';
+import { Layout } from './app-layuot';
 import { LoginForm } from '@/components';
 
 const meta = {

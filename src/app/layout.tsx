@@ -7,7 +7,7 @@ import { SITE_NAME } from '@/constants/seo.constans';
 import '../styles/index.scss';
 
 import { Providers } from '@/app/porviders';
-import { Layout } from '@/components';
+import { AppLayout } from '@/components';
 
 const font = Rubik({
 	subsets: ['cyrillic', 'latin'],
@@ -30,9 +30,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={font.className}>
-				<Providers>
-					<Layout>{children}</Layout>
-				</Providers>
+				<AppLayout>
+					<Providers>{children}</Providers>
+				</AppLayout>
 			</body>
 		</html>
 	);

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { NO_INDEX_PAGE } from '@/constants/seo.constans';
 
-import { Layout, LoginForm } from '@/components';
+import { LoginForm } from '@/components';
 
 export const metadata: Metadata = {
 	title: 'Auth',

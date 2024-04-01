@@ -3,13 +3,13 @@
 import { DevTool } from '@hookform/devtools';
 import { clsx } from 'clsx';
 
-import { ControlledCheckbox } from '@/components/controlled-checkbox';
 import { useLoginForm } from '@/components/forms/login/use-login-form';
 
 import style from './login-form.module.scss';
 import {
 	Button,
 	Card,
+	ControlledCheckbox,
 	ControlledInput,
 	EInputType,
 	Typography
