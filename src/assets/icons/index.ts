@@ -9,3 +9,4 @@ export { default as ProfileIcon } from './profile';
 export { default as SettingsIcon } from './settings';
 export { default as LogoIcon } from './logo';
 export { default as TasksIcon } from './tasks';
+export { default as ChevronDownIcon } from './chevron-down';
