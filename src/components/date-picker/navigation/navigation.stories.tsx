@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Day } from '@/components/date-picker/day/day';
+import { Navigation } from '@/components/date-picker/navigation/navigation';
 
 const meta = {
-	title: 'Components/Day',
-	component: Day,
+	title: 'Components/Navigation',
+	component: Navigation,
 	parameters: {
 		layout: 'centered'
 	},
 	tags: ['autodocs']
-} satisfies Meta<typeof Day>;
+} satisfies Meta<typeof Navigation>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { date: new Date(), displayMonth: new Date() }
+	args: {}
 };

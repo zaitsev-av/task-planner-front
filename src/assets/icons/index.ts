@@ -10,3 +10,5 @@ export { default as SettingsIcon } from './settings';
 export { default as LogoIcon } from './logo';
 export { default as TasksIcon } from './tasks';
 export { default as ChevronDownIcon } from './chevron-down';
+export { default as ArrowLeftIcon } from './arrow-left';
+export { default as ArrowRightIcon } from './arrow-right';
