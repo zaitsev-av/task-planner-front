@@ -1,6 +1,8 @@
+import { clsx } from 'clsx';
+import { isToday } from 'date-fns';
 import { useRef } from 'react';
 
-import { Button } from '../button';
+import style from './day.module.scss';
 
 export interface DayProps {
 	displayMonth: Date;
@@ -10,18 +12,9 @@ export interface DayProps {
 export function Day(props: DayProps): JSX.Element {
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	// const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
-
-	// if (dayRender.isHidden) {
-	// 	return <div role='gridcell'></div>;
-	// }
-	// if (!dayRender.isButton) {
-	// 	return <div {...dayRender.divProps} />;
-	// }
-	return (
-		<Button
-			name='day'
-			ref={buttonRef}
-			//{...dayRender.buttonProps}
-		/>
-	);
+	const today = isToday(props.date ?? new Date());
+	const classNames = {
+		root: clsx(style.root, today && style.today)
+	};
+	return <div className={classNames.root}>{props.date.getDate()}</div>;
 }

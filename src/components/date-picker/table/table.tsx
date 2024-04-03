@@ -1,29 +1,19 @@
-import { Footer, Head, useDayPicker } from 'react-day-picker';
-
+import { useDayPicker } from '@/components/date-picker/Context';
 import { Row } from '@/components/date-picker/table/Row/Row';
 import { getMonthWeeks } from '@/components/date-picker/utils';
 
+import style from './table.module.scss';
+
 export interface TableProps {
-	/** ID of table element */
 	id?: string;
-	/** The ID of the label of the table (the same given to the Caption). */
 	['aria-labelledby']?: string;
-	/** The month where the table is displayed. */
 	displayMonth: Date;
 }
 
 /** Render the table with the calendar. */
 export function Table(props: TableProps): JSX.Element {
-	const {
-		locale,
-		classNames,
-		styles,
-		hideHead,
-		fixedWeeks,
-		weekStartsOn,
-		firstWeekContainsDate,
-		ISOWeek
-	} = useDayPicker();
+	const { locale, fixedWeeks, weekStartsOn, firstWeekContainsDate, ISOWeek } =
+		useDayPicker();
 
 	const weeks = getMonthWeeks(props.displayMonth, {
 		useFixedWeeks: Boolean(fixedWeeks),
@@ -33,19 +23,17 @@ export function Table(props: TableProps): JSX.Element {
 		firstWeekContainsDate
 	});
 
+	console.log(weeks);
+
 	return (
 		<table
 			id={props.id}
-			className={classNames.table}
-			style={styles.table}
 			role='grid'
 			aria-labelledby={props['aria-labelledby']}
+			className={style.root}
 		>
 			{/*{!hideHead && <Head />}*/}
-			<tbody
-				className={classNames.tbody}
-				style={styles.tbody}
-			>
+			<tbody>
 				{weeks.map(week => (
 					<Row
 						displayMonth={props.displayMonth}

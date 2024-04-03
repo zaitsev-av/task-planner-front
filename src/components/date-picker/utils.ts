@@ -14,22 +14,15 @@ import {
 	startOfWeek
 } from 'date-fns';
 
-/** Represents a week in the month.*/
 export type MonthWeek = {
-	/** The week number from the start of the year. */
 	weekNumber: number;
-	/** The dates in the week. */
 	dates: Date[];
 };
 
-/**
- * Return the weeks belonging to the given month, adding the "outside days" to
- * the first and last week.
- */
 export function getMonthWeeks(
 	month: Date,
 	options: {
-		locale: Locale;
+		locale?: Locale;
 		useFixedWeeks?: boolean;
 		weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 		firstWeekContainsDate?: 1 | 4;

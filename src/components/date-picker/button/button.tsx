@@ -1,8 +1,6 @@
 import { forwardRef } from 'react';
 
-import IntrinsicElements = React.JSX.IntrinsicElements;
-
-export type ButtonProps = IntrinsicElements['button'];
+export type ButtonProps = React.JSX.IntrinsicElements['button'];
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(props, ref) => {
