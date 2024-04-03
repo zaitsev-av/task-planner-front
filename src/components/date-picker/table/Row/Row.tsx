@@ -10,7 +10,6 @@ export interface RowProps {
 	dates: Date[];
 }
 
-/** Render a row in the calendar, with the days and the week number. */
 export function Row(props: RowProps): JSX.Element {
 	const { showWeekNumber } = useDayPicker();
 
@@ -25,7 +24,7 @@ export function Row(props: RowProps): JSX.Element {
 			</td>
 		);
 	}
-	console.log(props.dates, 'dates');
+
 	return (
 		<tr>
 			{weekNumberCell}

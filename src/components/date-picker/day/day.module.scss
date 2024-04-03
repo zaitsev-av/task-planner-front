@@ -1,4 +1,6 @@
 .root {
+  all: inherit;
+
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -8,7 +10,7 @@
 
   background: rgb(45 43 43 / 80%);
 
-  &:hover {
+  &:enabled:hover {
     animation:shadow-drop-center .3s cubic-bezier(.25,.46,.45,.94) both;
   }
 
@@ -26,4 +28,9 @@
 
 .today {
   background: #425667;
+}
+
+.noCurrent {
+  color: #725757;
+  background: rgb(36 33 33 / 80%);
 }

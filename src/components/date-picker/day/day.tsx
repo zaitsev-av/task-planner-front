@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { isToday } from 'date-fns';
+import { endOfMonth, isAfter, isBefore, isToday, startOfMonth } from 'date-fns';
 import { useRef } from 'react';
 
 import style from './day.module.scss';
@@ -8,13 +8,36 @@ export interface DayProps {
 	displayMonth: Date;
 	date: Date;
 }
+const isMonthBoundary = (current: Date, target: Date) => {
+	const startOfMonthDate = startOfMonth(current);
+	const endOfMonthDate = endOfMonth(current);
+
+	const isPreviousMonth = isBefore(target, startOfMonthDate);
+	const isNextMonth = isAfter(target, endOfMonthDate);
+	return isPreviousMonth || isNextMonth;
+};
 
 export function Day(props: DayProps): JSX.Element {
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	// const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
+	const isNoCurrentMonth = isMonthBoundary(new Date(), props.date);
 	const today = isToday(props.date ?? new Date());
 	const classNames = {
-		root: clsx(style.root, today && style.today)
+		root: clsx(
+			style.root,
+			today && style.today,
+			isNoCurrentMonth && style.noCurrent
+		)
 	};
-	return <div className={classNames.root}>{props.date.getDate()}</div>;
+
+	console.log(isNoCurrentMonth, 'isDay');
+
+	return (
+		<button
+			className={classNames.root}
+			disabled={isNoCurrentMonth}
+		>
+			{props.date.getDate()}
+		</button>
+	);
 }
