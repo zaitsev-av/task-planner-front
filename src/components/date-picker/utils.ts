@@ -36,7 +36,6 @@ export function getMonthWeeks(
 	);
 
 	if (options?.useFixedWeeks) {
-		// Add extra weeks to the month, up to 6 weeks
 		const nrOfMonthWeeks = getWeeksInMonth(month, options);
 		if (nrOfMonthWeeks < 6) {
 			const lastWeek = weeksInMonth[weeksInMonth.length - 1];
@@ -53,7 +52,6 @@ export function getMonthWeeks(
 	return weeksInMonth;
 }
 
-/** Return the weeks between two dates.  */
 export function daysToMonthWeeks(
 	fromDate: Date,
 	toDate: Date,
@@ -97,6 +95,7 @@ export function daysToMonthWeeks(
 
 	return weeksInMonth;
 }
+
 export const parseDate = (fromYear: number, toYear: number) => {
 	return {
 		fromDate: new Date(fromYear, 0, 1),

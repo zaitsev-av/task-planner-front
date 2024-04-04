@@ -12,10 +12,18 @@ export interface TableProps {
 }
 
 export function Table(props: TableProps): JSX.Element {
-	const { locale, fixedWeeks, weekStartsOn, firstWeekContainsDate, ISOWeek } =
-		useDayPicker();
+	const {
+		locale,
+		fixedWeeks,
+		weekStartsOn,
+		firstWeekContainsDate,
+		ISOWeek,
+		month
+	} = useDayPicker();
 
-	const weeks = getMonthWeeks(props.displayMonth, {
+	console.log(props.displayMonth, 'props.displayMonth');
+
+	const weeks = getMonthWeeks(month!, {
 		useFixedWeeks: Boolean(fixedWeeks),
 		ISOWeek,
 		locale,

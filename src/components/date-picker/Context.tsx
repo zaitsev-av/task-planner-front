@@ -1,4 +1,4 @@
-import { Locale } from 'date-fns';
+import { addMonths, Locale } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { createContext, CSSProperties, ReactNode, useContext } from 'react';
 
@@ -31,8 +31,9 @@ export interface IBase {
 	initialFocus?: boolean;
 	today?: Date;
 	locale?: Locale;
+	onChangeMonth: () => void;
 }
-
+const nextMonth = addMonths(new Date(), 1);
 export const initialProps: IBase = {
 	className: '',
 	style: {},
@@ -53,11 +54,18 @@ export const initialProps: IBase = {
 	hideHead: false,
 	showOutsideDays: false,
 	showWeekNumber: false,
-	weekStartsOn: 0,
+	weekStartsOn: 1,
 	firstWeekContainsDate: 1,
 	ISOWeek: false,
 	today: new Date(),
-	locale: ru
+	locale: ru,
+	onChangeMonth: () => {
+		const nextMonth = addMonths(new Date(), 1);
+		console.log('called', nextMonth);
+		console.log('called', initialProps.month);
+
+		initialProps.month = nextMonth;
+	}
 };
 
 export interface DayPickerContextValue extends IBase {
@@ -81,8 +89,6 @@ export interface DayPickerProviderProps {
 }
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 	const { initialProps } = props;
-
-	// const defaultContextValues = getDefaultContextValues();
 
 	const { fromDate, toDate } = parseDate(
 		//todo удалить костыль

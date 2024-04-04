@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 import { endOfMonth, isAfter, isBefore, isToday, startOfMonth } from 'date-fns';
 import { useRef } from 'react';
 
+import { useDayPicker } from '@/components/date-picker/Context';
+
 import style from './day.module.scss';
 
 export interface DayProps {
@@ -19,7 +21,7 @@ const isMonthBoundary = (current: Date, target: Date) => {
 
 export function Day(props: DayProps): JSX.Element {
 	const buttonRef = useRef<HTMLButtonElement>(null);
-	const isNoCurrentMonth = isMonthBoundary(new Date(), props.date);
+	const isNoCurrentMonth = isMonthBoundary(props.displayMonth, props.date);
 	const today = isToday(props.date ?? new Date());
 	const classNames = {
 		root: clsx(

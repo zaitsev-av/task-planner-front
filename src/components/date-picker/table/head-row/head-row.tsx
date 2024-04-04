@@ -2,6 +2,8 @@ import { addDays, format, Locale, startOfISOWeek, startOfWeek } from 'date-fns';
 
 import { useDayPicker } from '@/components/date-picker/Context';
 
+import style from './head-row.module.scss';
+
 interface Props {}
 export function HeadRow(): JSX.Element {
 	const { showWeekNumber, locale, weekStartsOn, ISOWeek } = useDayPicker();
@@ -25,7 +27,7 @@ export function HeadRow(): JSX.Element {
 	const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
 
 	return (
-		<tr>
+		<tr className={style.root}>
 			<td></td>
 			{weekdays.map((weekday, i) => (
 				<th

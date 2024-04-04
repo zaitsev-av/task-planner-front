@@ -1,10 +1,12 @@
+import { addMonths } from 'date-fns';
 import dayjs from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import 'react-day-picker/dist/style.css';
 
 import {
 	DayPickerProvider,
-	initialProps
+	initialProps,
+	useDayPicker
 } from '@/components/date-picker/Context';
 import { Navigation } from '@/components/date-picker/navigation';
 import { Table } from '@/components/date-picker/table/table';
@@ -20,6 +22,8 @@ interface Props {
 	// position?: 'left' | 'right';
 }
 export const DatePicker = () => {
+	const nextMonth = addMonths(new Date(), 1);
+
 	return (
 		<div>
 			<DayPickerProvider initialProps={initialProps}>
