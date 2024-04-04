@@ -6,6 +6,7 @@ import {
 	DayPickerProvider,
 	initialProps
 } from '@/components/date-picker/Context';
+import { Navigation } from '@/components/date-picker/navigation';
 import { Table } from '@/components/date-picker/table/table';
 
 dayjs.extend(LocalizedFormat);
@@ -22,6 +23,7 @@ export const DatePicker = () => {
 	return (
 		<div>
 			<DayPickerProvider initialProps={initialProps}>
+				<Navigation />
 				<Table displayMonth={new Date()} />
 			</DayPickerProvider>
 		</div>

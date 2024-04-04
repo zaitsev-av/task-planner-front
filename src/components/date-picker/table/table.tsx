@@ -1,5 +1,6 @@
 import { useDayPicker } from '@/components/date-picker/Context';
-import { Row } from '@/components/date-picker/table/Row/Row';
+import { Row } from '@/components/date-picker/table/Row/row';
+import { HeadRow } from '@/components/date-picker/table/head-row';
 import { getMonthWeeks } from '@/components/date-picker/utils';
 
 import style from './table.module.scss';
@@ -10,7 +11,6 @@ export interface TableProps {
 	displayMonth: Date;
 }
 
-/** Render the table with the calendar. */
 export function Table(props: TableProps): JSX.Element {
 	const { locale, fixedWeeks, weekStartsOn, firstWeekContainsDate, ISOWeek } =
 		useDayPicker();
@@ -23,8 +23,6 @@ export function Table(props: TableProps): JSX.Element {
 		firstWeekContainsDate
 	});
 
-	console.log(weeks);
-
 	return (
 		<table
 			id={props.id}
@@ -32,7 +30,7 @@ export function Table(props: TableProps): JSX.Element {
 			aria-labelledby={props['aria-labelledby']}
 			className={style.root}
 		>
-			{/*{!hideHead && <Head />}*/}
+			<HeadRow />
 			<tbody>
 				{weeks.map(week => (
 					<Row

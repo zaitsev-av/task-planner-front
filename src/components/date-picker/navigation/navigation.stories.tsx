@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Navigation } from '@/components/date-picker/navigation/navigation';
 
 const meta = {
-	title: 'Components/Navigation',
+	title: 'Date-Picker/Navigation',
 	component: Navigation,
 	parameters: {
 		layout: 'centered'

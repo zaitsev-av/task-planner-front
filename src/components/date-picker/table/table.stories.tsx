@@ -4,7 +4,7 @@ import { DatePicker } from '@/components/date-picker/date-picker';
 import { Table } from '@/components/date-picker/table/table';
 
 const meta = {
-	title: 'Components/Table',
+	title: 'Date-Picker/Table',
 	component: Table,
 	parameters: {
 		layout: 'centered'

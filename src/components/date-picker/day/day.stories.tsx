@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Day } from '@/components/date-picker/day/day';
 
 const meta = {
-	title: 'Components/Day',
+	title: 'Date-Picker/Day',
 	component: Day,
 	parameters: {
 		layout: 'centered'

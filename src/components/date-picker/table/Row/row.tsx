@@ -12,6 +12,7 @@ export interface RowProps {
 
 export function Row(props: RowProps): JSX.Element {
 	const { showWeekNumber } = useDayPicker();
+	console.log(showWeekNumber, '-> showWeekNumber');
 
 	let weekNumberCell;
 	if (showWeekNumber) {
@@ -24,10 +25,17 @@ export function Row(props: RowProps): JSX.Element {
 			</td>
 		);
 	}
+	// console.log(props.dates, '-< props.dates');
+	// console.log(props.weekNumber, '-< props.weekNumber');
 
 	return (
 		<tr>
-			{weekNumberCell}
+			<td>
+				<WeekNumber
+					number={props.weekNumber}
+					dates={props.dates}
+				/>
+			</td>
 			{props.dates.map(date => (
 				<td
 					key={getUnixTime(date)}

@@ -7,10 +7,11 @@ export const Navigation = (props: Props) => {
 		<div className={style.container}>
 			<button className={style.root}>
 				<ArrowLeftIcon />
-				Prev
+				{/*Prev*/}
 			</button>
+			Название месяца
 			<button className={style.root}>
-				Next
+				{/*Next*/}
 				<ArrowRightIcon />
 			</button>
 		</div>

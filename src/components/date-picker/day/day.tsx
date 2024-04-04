@@ -19,7 +19,6 @@ const isMonthBoundary = (current: Date, target: Date) => {
 
 export function Day(props: DayProps): JSX.Element {
 	const buttonRef = useRef<HTMLButtonElement>(null);
-	// const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 	const isNoCurrentMonth = isMonthBoundary(new Date(), props.date);
 	const today = isToday(props.date ?? new Date());
 	const classNames = {
